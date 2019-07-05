@@ -1,0 +1,90 @@
+<link rel="import" href="../components/bubble-component.html">
+
+<dom-module id="chat-component">
+  asdf
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .chat-container {
+        padding: 10px;
+        width: 100%;
+        height: 450px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-bottom: 15px;
+      }
+      .chat-container::-webkit-scrollbar {
+        width: 10px;
+      }
+      .chat-container::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(48,84,162,1);
+
+      }
+    </style>
+    <div id="chatContainer" class="chat-container">
+      <!-- <template id="template1">
+        <div class="chat-message user1">
+          <div class="user-photo1">
+
+          </div>
+          <p class="message">[[paraph]]</p>
+        </div>
+      </template>
+    <template id="user2">
+      <div class="chat-message user2">
+        <div class="user-photo2">
+
+        </div>
+        <p class="message">[[paraph2]] sss</p>
+      </div>
+
+      </template> -->
+
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `chat-component`
+     * Chat for Container Component
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ChatComponent extends Polymer.Element {
+      static get is() { return 'chat-component'; }
+      static get properties() {
+        return {
+          paraph: {
+            type: String,
+            value: 'Hello!!'
+          },
+          paraph2: {
+            type: String,
+            value:'What´s UP!!'
+          }
+        };
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this._createMessage("hola", false);
+        this._createMessage("adios", true);
+        this._createMessage("saludos", false);
+      }
+
+      _createMessage(message, user) {
+        const element = document.createElement('bubble-component');
+        element.user = user;
+        element.message = message;
+        this.$.chatContainer.appendChild(element);
+      }
+    }
+
+    window.customElements.define(ChatComponent.is, ChatComponent);
+  </script>
+</dom-module>

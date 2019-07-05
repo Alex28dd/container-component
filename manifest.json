@@ -1,0 +1,7 @@
+{
+  "name": "wraper-component",
+  "short_name": "wraper-component",
+  "description": "Container of Chats component",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,47 @@
+<dom-module id="header-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      h2 {
+        background: #fff;
+        color: #004481;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: -5px;
+        border-radius: 10px;
+        font-family: roboto;
+      }
+
+    </style>
+    <header>
+      <h2>[[title]]</h2>
+    </header>
+  </template>
+
+  <script>
+    /**
+     * `header-component`
+     * Header for Container Component
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class HeaderComponent extends Polymer.Element {
+      static get is() { return 'header-component'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'Chats'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(HeaderComponent.is, HeaderComponent);
+  </script>
+</dom-module>

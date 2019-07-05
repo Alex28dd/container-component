@@ -1,0 +1,62 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../components/header-component.html">
+<link rel="import" href="../components/chat-component.html">
+<link rel="import" href="../components/footer-component.html">
+
+<dom-module id="wraper-component-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        margin: 0;
+          padding: 0;
+        }
+        .container {
+          width: 800px;
+          height: 650px;
+          background-color: #072146;072146
+          color: #fff;
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          box-sizing: border-box;
+          padding: 20px;
+          border-radius: 20px;
+          border-box: 1 solid;
+        }
+    </style>
+    <div class="container">
+      <header-component></header-component>
+      <chat-component id="body"></chat-component>
+      <footer-component id="sendMessage"></footer-component>
+
+    </div>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class WraperComponentApp extends Polymer.Element {
+      static get is() { return 'wraper-component-app'; }
+      static get properties() {
+        return {
+          requsers: {
+            type: Array,
+            value: []
+          }
+        };
+      }
+    //   connectedCallback() {
+    //     super.connectedCallback();
+    //   }
+    //   _newChatResponse(newMessage) {
+    //     this.$.body._createMessage('mensaje nuevo', 0);
+    //   };
+    }
+
+    window.customElements.define(WraperComponentApp.is, WraperComponentApp);
+  </script>
+</dom-module>

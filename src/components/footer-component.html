@@ -1,0 +1,102 @@
+<dom-module id="footer-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .footer-chat {
+        background: #fff;5BBEFF
+        color: #000;
+        padding: 10px;
+        display: block;
+        width: 96%;
+        border-radius: 15px;
+        }
+      .input input {
+        width: 100%;
+        margin-bottom: 20px;
+        font-family: roboto;
+      }
+      .input input[type="text"] {
+        border: none;
+        border-bottom: 1px solid #5bbeff;
+        background: transparent;
+        outline: none;
+        height: 30px;
+        color: #fff;
+        font-size: 16px;
+      }
+      .button button {
+        width: 100%;
+        color: #4F5768;
+        border: none;
+        outline: none;
+        height: 30px;
+        background: #fff;
+        font-size: 20px;
+        border-radius: 50px;
+        transition-duration: 0.4s;
+        border: 1px solid #5bbeff;
+        font-family: roboto;Courier, "Lucida Console", monospace
+      }
+      .button button:hover {
+        background-color: #fff;
+        box-shadow:0 1px 1px rgba(0,0,0,0.1);
+        color:#333;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+      .button button:active {
+        box-shadow: 0 5px #5bbeff;
+        transform: translateY(4px);
+      }
+    </style>
+    <footer>
+      <!-- <dom-if if="[[!_validateView(status)]]">
+        <template> -->
+          <div class="footer-chat">
+            <div class="input">
+              <input id="text" type="text" placeholder="Writes">
+            </div>
+            <div class="button">
+              <button id="sendMessage" on-click="_send">[[title]]</button>
+            </div>
+          </div>
+        <!-- </template>
+      </dom-if> -->
+    </footer>
+  </template>
+
+  <script>
+    /**
+     * `footer-component`
+     * Footer for Conata[Ciner Compontainer Componentnent
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class FooterComponent extends Polymer.Element {
+      static get is() { return 'footer-component'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'SEND'
+          },
+          status: {
+            type: Number,
+            value: 1
+          }
+        };
+      }
+      connectedCallback() {
+        super.connectedCallback();
+      }
+      _send() {
+        // this.shadowRoot.querySelector('.footer-chat').style.background = '#0840B9';
+      }
+    }
+
+    window.customElements.define(FooterComponent.is, FooterComponent);
+  </script>
+</dom-module>

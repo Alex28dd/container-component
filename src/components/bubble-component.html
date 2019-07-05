@@ -1,0 +1,91 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="bubble-component">
+  <template>
+    <style>
+      .chat-message {
+        width: 100%;
+        height: 100px;
+      }
+      .chat-message {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flip-start;
+        margin-bottom: 10px;
+      }
+      .chat-message .user-photo1 {
+        width: 60px;
+        height: 60px;
+        background: #2A86CA;
+        border-radius: 50%;
+      }
+      .chat-message .user-photo2 {
+        width: 60px;
+        height: 60px;
+        background: #5bbeff;
+        border-radius: 50%;
+      }
+      .chat-message .message {
+        width: 70%;
+        padding: 15px;
+        margin: 5px 10px 0;
+        background: #2A86CA;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 18px;
+        font-family: roboto;
+      }
+      .user1 .message {
+        background: #2A86CA;
+      }
+      .user2 .message {
+        background: #5bbeff;
+        order: -1;
+      }
+    </style>
+    <dom-if if="[[user]]">
+      <!-- <template> -->
+        <div id="template1" class="chat-message user1">
+          <div class="user-photo1"></div>
+          <p class="message">[[message]]</p>
+        </div>
+      <!-- </template> -->
+    </dom-if>
+    <dom-if if="[[!user]]">
+      <!-- <template> -->
+        <div class="chat-message user2">
+          <div class="user-photo2"></div>
+          <p class="message">[[message]]</p>
+        </div>
+      <!-- </template> -->
+    </dom-if>
+  </template>
+
+  <script>
+    /**
+     * `bubble-component`
+     * Component extends of chat-component
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class BubbleComponent extends Polymer.Element {
+      static get is() { return 'bubble-component'; }
+      static get properties() {
+        return {
+          user: {
+            type: Boolean,
+            value: true
+          },
+          message: {
+            type: String,
+            value: ''
+          }
+        };
+      }
+    }
+
+    window.customElements.define(BubbleComponent.is, BubbleComponent);
+  </script>
+</dom-module>
